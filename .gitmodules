@@ -1,0 +1,21 @@
+[submodule "external/hf-bno08x-driver"]
+	path = external/hf-bno08x-driver
+	url = https://github.com/N3b3x/hf-bno08x-driver.git
+[submodule "external/hf-tmc9660-driver"]
+	path = external/hf-tmc9660-driver
+	url = https://github.com/N3b3x/hf-tmc9660-driver.git
+[submodule "external/hf-pcal95555-driver"]
+	path = external/hf-pcal95555-driver
+	url = https://github.com/N3b3x/hf-pcal95555-driver.git
+[submodule "external/hf-as5047u-driver"]
+	path = external/hf-as5047u-driver
+	url = https://github.com/N3b3x/hf-as5047u-driver.git
+[submodule "external/hf-ws2812-rmt-driver"]
+	path = external/hf-ws2812-rmt-driver
+	url = https://github.com/N3b3x/hf-ws2812-rmt-driver.git
+[submodule "internal/hf-internal-interface-wrap"]
+	path = internal/hf-internal-interface-wrap
+	url = https://github.com/N3b3x/hf-internal-interface-wrap.git
+[submodule "internal/hf-pincfg"]
+	path = internal/hf-pincfg
+	url = https://github.com/hardfoc/hf-pincfg.git
