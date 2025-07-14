@@ -19,3 +19,6 @@
 [submodule "internal/hf-pincfg"]
 	path = internal/hf-pincfg
 	url = https://github.com/hardfoc/hf-pincfg.git
+[submodule "external/hf-pca9685-driver"]
+	path = external/hf-pca9685-driver
+	url = https://github.com/N3b3x/hf-pca9685-driver.git
