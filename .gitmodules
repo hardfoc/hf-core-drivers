@@ -22,3 +22,9 @@
 [submodule "external/hf-pca9685-driver"]
 	path = external/hf-pca9685-driver
 	url = https://github.com/N3b3x/hf-pca9685-driver.git
+[submodule "hf-ntc-thermistor-driver"]
+	path = hf-ntc-thermistor-driver
+	url = https://github.com/N3b3x/hf-ntc-thermistor-driver.git
+[submodule "external/hf-ntc-thermistor-driver"]
+	path = external/hf-ntc-thermistor-driver
+	url = https://github.com/N3b3x/hf-ntc-thermistor-driver.git
