@@ -28,3 +28,9 @@
 [submodule "external/hf-ntc-thermistor-driver"]
 	path = external/hf-ntc-thermistor-driver
 	url = https://github.com/N3b3x/hf-ntc-thermistor-driver.git
+[submodule "external/hf-tle92466ed-driver"]
+	path = external/hf-tle92466ed-driver
+	url = https://github.com/N3b3x/hf-tle92466ed-driver.git
+[submodule "external/hf-max22200-driver"]
+	path = external/hf-max22200-driver
+	url = https://github.com/N3b3x/hf-max22200-driver.git
