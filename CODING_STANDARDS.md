@@ -803,14 +803,35 @@ void ProcessData(const uint8_t* data_ptr, size_t length) {
 
 ### Namespaces
 
-- **Namespace names (C++)**: PascalCase
+- **Namespace names (C++)**: **lowercase** (preferred for acronym-based names) or PascalCase
   ```cpp
+  // ✅ Preferred: lowercase for acronym-based namespaces (avoids conflicts)
+  namespace tmc9660 {
+      class TMC9660 { ... };
+  }
+  
+  namespace pca9685 {
+      class PCA9685 { ... };
+  }
+  
+  namespace max22200 {
+      class MAX22200 { ... };
+  }
+  
+  // ✅ Also acceptable: PascalCase for descriptive namespaces
   namespace Device {
       namespace Registers { ... }
       namespace Config { ... }
   }
   
-  // C doesn't have namespaces, use prefixes instead
+  // ❌ Avoid: Same case as class name (causes conflicts)
+  namespace MAX22200 {  // Conflict with class MAX22200
+      class MAX22200 { ... };
+  }
+  ```
+  
+  **C Language Note**: C doesn't have namespaces, use prefixes instead:
+  ```c
   // device_registers.h
   #define DEV_REG_CTRL      0x0000U
   #define DEV_REG_CONFIG    0x0002U
@@ -824,8 +845,25 @@ void ProcessData(const uint8_t* data_ptr, size_t length) {
 
 **Reasoning**:
 1. **Module Organization**: Namespaces group related functionality
-2. **Avoid Collisions**: Prevents naming conflicts
-3. **Clear Hierarchy**: PascalCase matches class naming conventions
+2. **Avoid Collisions**: Prevents naming conflicts, especially between namespace and class names
+3. **Clear Distinction**: Lowercase namespace + PascalCase class clearly distinguishes namespace from class
+4. **Consistency**: Matches pattern used across codebase (tmc9660/TMC9660, pca9685/PCA9685, max22200/MAX22200)
+5. **Usage Clarity**: Allows `using namespace max22200;` without ambiguity when class is `MAX22200`
+
+**Best Practice**: When a namespace contains a class with the same base name (especially acronyms), use **lowercase for the namespace** and **PascalCase for the class** to avoid conflicts:
+```cpp
+// ✅ Good: Clear distinction
+namespace max22200 {
+    class MAX22200 { ... };
+}
+using namespace max22200;  // No conflict - can use MAX22200 class
+
+// ❌ Bad: Ambiguous
+namespace MAX22200 {
+    class MAX22200 { ... };
+}
+using namespace MAX22200;  // Conflict - MAX22200 refers to both namespace and class
+```
 
 ---
 
@@ -837,6 +875,11 @@ void ProcessData(const uint8_t* data_ptr, size_t length) {
   class CommInterface { ... };
   struct ChannelConfig { ... };
   struct DeviceStatus { ... };
+  
+  // For acronyms, use all uppercase (still PascalCase)
+  class MAX22200 { ... };
+  class TMC9660 { ... };
+  class PCA9685 { ... };
   ```
 
 - **Struct names (C)**: snake_case with `_t` suffix
@@ -856,6 +899,25 @@ void ProcessData(const uint8_t* data_ptr, size_t length) {
 1. **Type Identification**: PascalCase immediately signals "this is a type"
 2. **Industry Standard**: Universal C++ convention
 3. **Consistency**: Matches standard library and modern C++ conventions
+4. **Namespace Distinction**: When namespace is lowercase and class is PascalCase, they are clearly distinguishable (e.g., `max22200::MAX22200`)
+
+**Namespace/Class Naming Pattern**:
+When creating a driver library with a namespace and main class, follow this pattern to avoid name conflicts:
+```cpp
+// ✅ Recommended pattern for acronym-based drivers
+namespace max22200 {        // lowercase namespace
+    class MAX22200 { ... }; // PascalCase class (all caps for acronyms)
+}
+
+// Usage:
+using namespace max22200;
+MAX22200<MySPI> driver;  // Clear - MAX22200 is the class
+
+// ✅ Also acceptable for descriptive names
+namespace Device {         // PascalCase namespace
+    class Device { ... };  // PascalCase class (different name or context)
+}
+```
 
 ---
 
@@ -887,12 +949,17 @@ constexpr uint8_t MAX_CHANNELS_ = 6;
 
 ### File Names
 
-- **Header files**: Match class/namespace names
+**Standard Convention: Lowercase with Underscores**
+
+All source files, header files, and documentation files must use **lowercase with underscores** (`snake_case`):
+
+- **Header files** (`.hpp` for C++, `.h` for C):
   ```cpp
   // C++ headers
-  Device.hpp
-  Device_CommInterface.hpp
-  Device_Registers.hpp
+  max22200.hpp
+  max22200_spi_interface.hpp
+  max22200_registers.hpp
+  max22200_types.hpp
   
   // C headers
   device.h
@@ -900,21 +967,63 @@ constexpr uint8_t MAX_CHANNELS_ = 6;
   device_registers.h
   ```
 
-- **Source files**: Match header file names
+- **Source files** (`.cpp` for C++, `.c` for C):
   ```cpp
   // C++ sources
-  Device.cpp
-  Device_CommInterface.cpp
+  max22200.cpp
+  max22200_spi_interface.cpp
   
   // C sources
   device.c
   device_hal.c
   ```
 
+- **Documentation files** (`.md`):
+  ```markdown
+  // Documentation files
+  api_reference.md
+  hardware_guide.md
+  getting_started.md
+  driver_integration_test.md
+  ```
+
+- **Example files**:
+  ```cpp
+  // Example/test files
+  max22200_comprehensive_test.cpp
+  esp32_max22200_spi.hpp
+  driver_integration_test.cpp
+  basic_polling_example.cpp
+  ```
+
+**Repository Naming Convention: Lowercase with Dashes**
+
+Repository names use **lowercase with dashes** (`kebab-case`):
+
+```bash
+# Repository names
+hf-max22200-driver
+hf-pca9685-driver
+hf-tmc9660-driver
+hf-bno08x-driver
+hf-as5047u-driver
+hf-ntc-thermistor-driver
+hf-tle92466ed-driver
+hf-pcal95555-driver
+```
+
+**Key Distinction**:
+- **Repository names**: Use **dashes** (`-`) - e.g., `hf-max22200-driver`
+- **File names**: Use **underscores** (`_`) - e.g., `max22200_spi_interface.hpp`
+
 **Reasoning**:
-1. **Consistency**: File names match class/namespace names
-2. **Case Sensitivity**: Works across different filesystems
-3. **Clarity**: Clear relationship between files and their contents
+1. **Cross-platform compatibility**: Lowercase works on all filesystems (Windows, Linux, macOS)
+2. **Case sensitivity**: Avoids issues with case-sensitive vs case-insensitive filesystems
+3. **Consistency**: Uniform naming across all files makes navigation easier
+4. **Clarity**: Clear relationship between files and their contents
+5. **Tool compatibility**: Works well with build systems, version control, and documentation generators
+6. **Repository vs File distinction**: Dashes in repository names are URL-friendly; underscores in file names are more readable in code
+7. **Documentation consistency**: All documentation files follow the same pattern for easy discovery
 
 ---
 
@@ -1620,8 +1729,8 @@ auto buffer = std::make_unique<uint8_t[]>(256);
 | Parameters | snake_case | `channel`, `current_ma` | `a_channel` (rare, legacy) |
 | Pointers | snake_case or `p_` prefix | `data_ptr`, `buffer` | `p_data`, `p_buffer` (when distinguishing pointers) |
 | Type aliases | PascalCase | `Result`, `CommResult` | - |
-| Classes/Structs | PascalCase | `Device`, `ChannelConfig` | - |
-| Namespaces | PascalCase | `Device`, `Registers` | - |
+| Classes/Structs | PascalCase | `Device`, `ChannelConfig`, `MAX22200` | - |
+| Namespaces | lowercase (preferred) or PascalCase | `max22200`, `tmc9660`, `Device`, `Registers` | - |
 | Macros | UPPER_CASE | `DEVICE_HPP` | - |
 
 ### Key Principles Summary
