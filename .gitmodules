@@ -34,3 +34,6 @@
 [submodule "external/hf-max22200-driver"]
 	path = external/hf-max22200-driver
 	url = https://github.com/N3b3x/hf-max22200-driver.git
+[submodule "external/hf-tmc5160-driver"]
+	path = external/hf-tmc5160-driver
+	url = https://github.com/N3b3x/hf-tmc5160-driver.git
