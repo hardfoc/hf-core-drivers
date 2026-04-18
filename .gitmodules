@@ -37,3 +37,6 @@
 [submodule "external/hf-tmc5160-driver"]
 	path = external/hf-tmc5160-driver
 	url = https://github.com/N3b3x/hf-tmc5160-driver.git
+[submodule "external/hf-ads7952-driver"]
+	path = external/hf-ads7952-driver
+	url = https://github.com/N3b3x/hf-ads7952.git
