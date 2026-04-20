@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" role="img" aria-labelledby="t-drv d-drv">
+  <title id="t-drv">hf-core-drivers - external chip drivers + internal hardware-abstraction submodules</title>
+  <desc id="d-drv">hf-core-drivers is an aggregator submodule that collects every per-chip CRTP driver (under external/) and the internal hardware-abstraction libraries (under internal/) consumed by hf-core. Each external/* is its own upstream repo; internal/* defines the BaseInterface contracts and the per-board functional pin map.</desc>
+  <defs>
+    <style type="text/css"><![CDATA[
+      .panel    { fill: #ffffff; }
+      .ext      { fill: #faf5ff; stroke: #6b46c1; stroke-width: 2; }
+      .ext-cell { fill: #ffffff; stroke: #805ad5; stroke-width: 1.5; }
+      .int      { fill: #fff5f5; stroke: #c53030; stroke-width: 2; }
+      .int-cell { fill: #ffffff; stroke: #e53e3e; stroke-width: 1.5; }
+      .agg      { fill: #fef5e7; stroke: #c05621; stroke-width: 2; }
+      .consumer { fill: #ebf4ff; stroke: #2c5282; stroke-width: 2; }
+      .arrow-dn { stroke: #2c5282; stroke-width: 2.5; fill: none; stroke-linecap: round; }
+      .head     { font-family: system-ui, sans-serif; font-size: 16px; font-weight: 600; fill: #1a365d; text-anchor: middle; }
+      .layer-title { font-family: system-ui, sans-serif; font-size: 14px; font-weight: 700; text-anchor: start; }
+      .title    { font-family: system-ui, sans-serif; font-size: 12.5px; font-weight: 600; fill: #1a365d; text-anchor: middle; }
+      .titleL   { font-family: system-ui, sans-serif; font-size: 12.5px; font-weight: 600; fill: #1a365d; text-anchor: start; }
+      .small    { font-family: system-ui, sans-serif; font-size: 11px; fill: #4a5568; text-anchor: middle; }
+      .smallL   { font-family: system-ui, sans-serif; font-size: 11px; fill: #4a5568; text-anchor: start; }
+      .smallR   { font-family: system-ui, sans-serif; font-size: 11px; fill: #4a5568; text-anchor: end; }
+      .pin      { font-family: "DejaVu Sans Mono", Consolas, monospace; font-size: 11px; fill: #1a202c; text-anchor: middle; }
+      .legend   { font-family: system-ui, sans-serif; font-size: 11px; fill: #4a5568; }
+      .badge    { font-family: system-ui, sans-serif; font-size: 10.5px; font-weight: 600; fill: #ffffff; text-anchor: middle; }
+    ]]></style>
+    <marker id="ar-d" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 z" fill="#2c5282"/>
+    </marker>
+  </defs>
+  <rect class="panel" width="960" height="600"/>
+
+  <text class="head" x="480" y="26">hf-core-drivers - chip drivers (external) + internal HW-abstraction</text>
+  <text class="small" x="480" y="44">Aggregator submodule under hf-core. Each driver in external/ is its own upstream repo; internal/ defines the BaseInterface contracts and per-board pin map.</text>
+
+  <!-- ======= Top: hf-core consumes everything below ======= -->
+  <rect class="consumer" x="120" y="62" width="720" height="56" rx="6"/>
+  <text class="title" x="480" y="84">hf-core  (handlers + utilities)</text>
+  <text class="small" x="480" y="102">Consumes BaseInterfaces + CRTP drivers; wraps each chip in a thread-safe handler.</text>
+
+  <line class="arrow-dn" x1="350" y1="118" x2="350" y2="148" marker-end="url(#ar-d)"/>
+  <line class="arrow-dn" x1="610" y1="118" x2="610" y2="148" marker-end="url(#ar-d)"/>
+
+  <!-- ======= hf-core-drivers aggregator band ======= -->
+  <rect class="agg" x="40" y="148" width="880" height="42" rx="6"/>
+  <text class="layer-title" x="56" y="174" fill="#c05621">hf-core-drivers  (aggregator submodule)</text>
+  <rect fill="#c05621" x="760" y="156" width="150" height="18" rx="9"/>
+  <text class="badge" x="835" y="169">hardfoc/hf-core-drivers</text>
+  <text class="smallL" x="56" y="184">CMakeLists glues each driver as a library; exposes hf::&lt;driver&gt; targets to consumers.</text>
+
+  <!-- Two child sections: external and internal -->
+
+  <!-- ======= LEFT: external/ (12 driver submodules) ======= -->
+  <rect class="ext" x="40" y="210" width="540" height="252" rx="6"/>
+  <text class="layer-title" x="56" y="232" fill="#6b46c1">external/  - 12 per-chip CRTP driver submodules</text>
+  <text class="smallL" x="56" y="248">Each row is a separate upstream repo (N3b3x/hf-*-driver) consumed via git submodule.</text>
+
+  <!-- Two columns of 6 drivers -->
+  <!-- Each driver cell: 36 px tall, holds the repo name on top and a one-line role under it -->
+  <g>
+    <rect class="ext-cell" x="60"  y="262" width="240" height="34" rx="4"/>
+    <text class="titleL" x="76"  y="277">hf-tle92466ed-driver</text>
+    <text class="smallL" x="76" y="291">6-channel low-side solenoid driver</text>
+
+    <rect class="ext-cell" x="60"  y="300" width="240" height="34" rx="4"/>
+    <text class="titleL" x="76"  y="315">hf-max22200-driver</text>
+    <text class="smallL" x="76" y="329">8-channel half-bridge solenoid</text>
+
+    <rect class="ext-cell" x="60"  y="338" width="240" height="34" rx="4"/>
+    <text class="titleL" x="76"  y="353">hf-tmc9660-driver</text>
+    <text class="smallL" x="76" y="367">FOC motor controller (BLDC/PMSM/stepper)</text>
+
+    <rect class="ext-cell" x="60"  y="376" width="240" height="34" rx="4"/>
+    <text class="titleL" x="76"  y="391">hf-tmc5160-driver</text>
+    <text class="smallL" x="76" y="405">stepper driver (TMC5130 / TMC5160)</text>
+
+    <rect class="ext-cell" x="60"  y="414" width="240" height="34" rx="4"/>
+    <text class="titleL" x="76"  y="429">hf-as5047u-driver</text>
+    <text class="smallL" x="76" y="443">magnetic rotary encoder</text>
+
+    <rect class="ext-cell" x="320" y="262" width="240" height="34" rx="4"/>
+    <text class="titleL" x="336" y="277">hf-bno08x-driver</text>
+    <text class="smallL" x="336" y="291">9-axis IMU with SH-2 fusion</text>
+
+    <rect class="ext-cell" x="320" y="300" width="240" height="34" rx="4"/>
+    <text class="titleL" x="336" y="315">hf-pca9685-driver</text>
+    <text class="smallL" x="336" y="329">16-channel 12-bit PWM (servo / LED)</text>
+
+    <rect class="ext-cell" x="320" y="338" width="240" height="34" rx="4"/>
+    <text class="titleL" x="336" y="353">hf-pcal95555-driver</text>
+    <text class="smallL" x="336" y="367">16-bit I2C GPIO expander</text>
+
+    <rect class="ext-cell" x="320" y="376" width="240" height="34" rx="4"/>
+    <text class="titleL" x="336" y="391">hf-ads7952-driver</text>
+    <text class="smallL" x="336" y="405">12-channel 12-bit SAR ADC over SPI</text>
+
+    <rect class="ext-cell" x="320" y="414" width="240" height="34" rx="4"/>
+    <text class="titleL" x="336" y="429">hf-ws2812-rmt-driver</text>
+    <text class="smallL" x="336" y="443">addressable RGB LED strip (RMT)</text>
+  </g>
+  <text class="smallL" x="60" y="464">+ hf-ntc-thermistor-driver, hf-mcp9700-driver (analog temperature sensors), hf-alicat-basis2-driver (Modbus mass-flow controller)</text>
+
+  <text class="smallL" x="60" y="478">All header-only, allocation-free, exception-free; CRTP-templated on the comm adapter (UartInterface, SpiInterface, I2cInterface).</text>
+
+  <!-- ======= RIGHT: internal/ (BaseInterfaces + pincfg) ======= -->
+  <rect class="int" x="600" y="210" width="320" height="252" rx="6"/>
+  <text class="layer-title" x="616" y="232" fill="#c53030">internal/  - hardware abstraction</text>
+  <text class="smallL" x="616" y="248">Two submodules consumed by every handler.</text>
+
+  <!-- BaseInterfaces submodule -->
+  <rect class="int-cell" x="616" y="262" width="288" height="80" rx="4"/>
+  <text class="titleL" x="624" y="280">hf-internal-interface-wrap</text>
+  <text class="smallL" x="624" y="298">Pure-virtual contracts (BaseI2c, BaseSpi,</text>
+  <text class="smallL" x="624" y="312">BaseGpio, BaseAdc, BaseTemperature,</text>
+  <text class="smallL" x="624" y="326">BaseEncoder, BaseImu) +</text>
+  <text class="smallL" x="624" y="340">ESP-IDF concrete impls (EspI2c, EspSpi, ...)</text>
+
+  <!-- Pincfg submodule -->
+  <rect class="int-cell" x="616" y="352" width="288" height="68" rx="4"/>
+  <text class="titleL" x="624" y="370">hf-pincfg</text>
+  <text class="smallL" x="624" y="388">Functional pin abstraction:</text>
+  <text class="smallL" x="624" y="402">MOTOR_SPI_CS, IMU_INT, etc. &#8594; per-board</text>
+  <text class="smallL" x="624" y="416">physical GPIO map (Flux V1, Vortex V1, ...).</text>
+
+  <text class="smallL" x="616" y="448">Both are also independent upstream repos:</text>
+  <text class="smallL" x="616" y="460">N3b3x/hf-internal-interface-wrap, N3b3x/hf-pincfg</text>
+
+  <!-- Bottom legend, two rows -->
+  <g transform="translate(40, 504)">
+    <text class="layer-title" x="0" y="0" fill="#1a365d">Legend</text>
+    <rect class="consumer" x="80"  y="-12" width="14" height="14"/>
+    <text class="legend" x="100" y="-1">hf-core (consumer)</text>
+    <rect class="agg" x="250" y="-12" width="14" height="14"/>
+    <text class="legend" x="270" y="-1">aggregator (this repo)</text>
+    <line class="arrow-dn" x1="430" y1="-5" x2="454" y2="-5" marker-end="url(#ar-d)"/>
+    <text class="legend" x="462" y="-1">depends on</text>
+  </g>
+  <g transform="translate(40, 524)">
+    <rect class="ext" x="80"  y="-12" width="14" height="14"/>
+    <text class="legend" x="100" y="-1">external chip driver submodule</text>
+    <rect class="int" x="320" y="-12" width="14" height="14"/>
+    <text class="legend" x="340" y="-1">internal HW abstraction submodule</text>
+  </g>
+  <g transform="translate(40, 552)">
+    <text class="smallL" x="0" y="0">Each external/* and internal/* is its own pinned git submodule, so any board HAL can pin a specific tested commit.</text>
+    <text class="smallL" x="0" y="14">CMakeLists.txt at this level adds every driver as a static library and exposes hf::&lt;name&gt; aliases.</text>
+  </g>
+</svg>
