@@ -46,3 +46,6 @@
 [submodule "external/hf-alicat-basis2-driver"]
 	path = external/hf-alicat-basis2-driver
 	url = https://github.com/N3b3x/hf-alicat-basis2-driver.git
+[submodule "external/hf-fdo2-driver"]
+	path = external/hf-fdo2-driver
+	url = https://github.com/N3b3x/hf-FDO2-driver.git
