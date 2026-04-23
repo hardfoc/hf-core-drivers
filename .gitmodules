@@ -49,3 +49,6 @@
 [submodule "external/hf-fdo2-driver"]
 	path = external/hf-fdo2-driver
 	url = https://github.com/N3b3x/hf-fdo2-driver.git
+[submodule "external/hf-se050-driver"]
+	path = external/hf-se050-driver
+	url = https://github.com/N3b3x/hf-se050-driver.git
