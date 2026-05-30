@@ -52,6 +52,9 @@
 [submodule "external/hf-se050-driver"]
 	path = external/hf-se050-driver
 	url = https://github.com/N3b3x/hf-se050-driver.git
+[submodule "external/hf-pf1550-driver"]
+	path = external/hf-pf1550-driver
+	url = https://github.com/N3b3x/hf-pf1550-driver.git
 [submodule "external/hf-vortex-driver"]
 	path = external/hf-vortex-driver
 	url = https://github.com/N3b3x/hf-vortex-driver.git
