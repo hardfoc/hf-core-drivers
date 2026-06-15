@@ -58,3 +58,7 @@
 [submodule "external/hf-vortex-driver"]
 	path = external/hf-vortex-driver
 	url = https://github.com/N3b3x/hf-vortex-driver.git
+[submodule "external/hf-isf15acp4-driver"]
+	path = external/hf-isf15acp4-driver
+	url = https://github.com/N3b3x/hf-isf15acp4-driver.git
+	branch = main
