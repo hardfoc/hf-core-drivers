@@ -68,3 +68,9 @@
 [submodule "external/hf-ads9324-driver"]
 	path = external/hf-ads9324-driver
 	url = https://github.com/N3b3x/hf-ads9324-driver.git
+[submodule "external/hf-sfm-flow-meter-driver"]
+	path = external/hf-sfm-flow-meter-driver
+	url = https://github.com/N3b3x/hf-sfm-flow-meter-driver.git
+[submodule "external/hf-bmp581-driver"]
+	path = external/hf-bmp581-driver
+	url = https://github.com/N3b3x/hf-bmp581-driver.git
