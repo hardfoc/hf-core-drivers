@@ -71,3 +71,6 @@
 [submodule "external/hf-bmp581-driver"]
 	path = external/hf-bmp581-driver
 	url = https://github.com/N3b3x/hf-bmp581-driver.git
+[submodule "external/hf-dynamixel-driver"]
+	path = external/hf-dynamixel-driver
+	url = https://github.com/N3b3x/hf-dynamixel-driver.git
