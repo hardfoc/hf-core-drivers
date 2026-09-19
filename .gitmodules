@@ -22,9 +22,6 @@
 [submodule "external/hf-pca9685-driver"]
 	path = external/hf-pca9685-driver
 	url = https://github.com/N3b3x/hf-pca9685-driver.git
-[submodule "hf-ntc-thermistor-driver"]
-	path = hf-ntc-thermistor-driver
-	url = https://github.com/N3b3x/hf-ntc-thermistor-driver.git
 [submodule "external/hf-ntc-thermistor-driver"]
 	path = external/hf-ntc-thermistor-driver
 	url = https://github.com/N3b3x/hf-ntc-thermistor-driver.git
@@ -39,7 +36,7 @@
 	url = https://github.com/N3b3x/hf-tmc5160-driver.git
 [submodule "external/hf-ads7952-driver"]
 	path = external/hf-ads7952-driver
-	url = https://github.com/N3b3x/hf-ads7952.git
+	url = https://github.com/N3b3x/hf-ads7952-driver.git
 [submodule "external/hf-mcp9700-driver"]
 	path = external/hf-mcp9700-driver
 	url = https://github.com/N3b3x/hf-mcp9700-driver.git
