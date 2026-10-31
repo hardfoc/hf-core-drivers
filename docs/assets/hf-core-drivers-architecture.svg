@@ -52,7 +52,7 @@
   <!-- ======= LEFT: external/ (12 driver submodules) ======= -->
   <rect class="ext" x="40" y="210" width="540" height="252" rx="6"/>
   <text class="layer-title" x="56" y="232" fill="#6b46c1">external/  - 12 per-chip CRTP driver submodules</text>
-  <text class="smallL" x="56" y="248">Each row is a separate upstream repo (N3b3x/hf-*-driver) consumed via git submodule.</text>
+  <text class="smallL" x="56" y="248">Each row is a separate upstream repo (hardfoc/hf-*-driver) consumed via git submodule.</text>
 
   <!-- Two columns of 6 drivers -->
   <!-- Each driver cell: 36 px tall, holds the repo name on top and a one-line role under it -->
@@ -122,7 +122,7 @@
   <text class="smallL" x="624" y="416">physical GPIO map (Flux V1, Vortex V1, ...).</text>
 
   <text class="smallL" x="616" y="448">Both are also independent upstream repos:</text>
-  <text class="smallL" x="616" y="460">N3b3x/hf-internal-interface-wrap, N3b3x/hf-pincfg</text>
+  <text class="smallL" x="616" y="460">hardfoc/hf-internal-interface-wrap, hardfoc/hf-pincfg</text>
 
   <!-- Bottom legend, two rows -->
   <g transform="translate(40, 504)">

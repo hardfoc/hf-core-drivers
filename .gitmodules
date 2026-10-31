@@ -1,76 +1,76 @@
 [submodule "external/hf-bno08x-driver"]
 	path = external/hf-bno08x-driver
-	url = https://github.com/N3b3x/hf-bno08x-driver.git
+	url = https://github.com/hardfoc/hf-bno08x-driver.git
 [submodule "external/hf-tmc9660-driver"]
 	path = external/hf-tmc9660-driver
-	url = https://github.com/N3b3x/hf-tmc9660-driver.git
+	url = https://github.com/hardfoc/hf-tmc9660-driver.git
 [submodule "external/hf-pcal95555-driver"]
 	path = external/hf-pcal95555-driver
-	url = https://github.com/N3b3x/hf-pcal95555-driver.git
+	url = https://github.com/hardfoc/hf-pcal95555-driver.git
 [submodule "external/hf-as5047u-driver"]
 	path = external/hf-as5047u-driver
-	url = https://github.com/N3b3x/hf-as5047u-driver.git
+	url = https://github.com/hardfoc/hf-as5047u-driver.git
 [submodule "external/hf-ws2812-rmt-driver"]
 	path = external/hf-ws2812-rmt-driver
-	url = https://github.com/N3b3x/hf-ws2812-rmt-driver.git
+	url = https://github.com/hardfoc/hf-ws2812-rmt-driver.git
 [submodule "internal/hf-internal-interface-wrap"]
 	path = internal/hf-internal-interface-wrap
-	url = https://github.com/N3b3x/hf-internal-interface-wrap.git
+	url = https://github.com/hardfoc/hf-internal-interface-wrap.git
 [submodule "internal/hf-pincfg"]
 	path = internal/hf-pincfg
 	url = https://github.com/hardfoc/hf-pincfg.git
 [submodule "external/hf-pca9685-driver"]
 	path = external/hf-pca9685-driver
-	url = https://github.com/N3b3x/hf-pca9685-driver.git
+	url = https://github.com/hardfoc/hf-pca9685-driver.git
 [submodule "external/hf-ntc-thermistor-driver"]
 	path = external/hf-ntc-thermistor-driver
-	url = https://github.com/N3b3x/hf-ntc-thermistor-driver.git
+	url = https://github.com/hardfoc/hf-ntc-thermistor-driver.git
 [submodule "external/hf-tle92466ed-driver"]
 	path = external/hf-tle92466ed-driver
-	url = https://github.com/N3b3x/hf-tle92466ed-driver.git
+	url = https://github.com/hardfoc/hf-tle92466ed-driver.git
 [submodule "external/hf-max22200-driver"]
 	path = external/hf-max22200-driver
-	url = https://github.com/N3b3x/hf-max22200-driver.git
+	url = https://github.com/hardfoc/hf-max22200-driver.git
 [submodule "external/hf-tmc5160-driver"]
 	path = external/hf-tmc5160-driver
-	url = https://github.com/N3b3x/hf-tmc5160-driver.git
+	url = https://github.com/hardfoc/hf-tmc5160-driver.git
 [submodule "external/hf-ads7952-driver"]
 	path = external/hf-ads7952-driver
-	url = https://github.com/N3b3x/hf-ads7952-driver.git
+	url = https://github.com/hardfoc/hf-ads7952-driver.git
 [submodule "external/hf-mcp9700-driver"]
 	path = external/hf-mcp9700-driver
-	url = https://github.com/N3b3x/hf-mcp9700-driver.git
+	url = https://github.com/hardfoc/hf-mcp9700-driver.git
 [submodule "external/hf-alicat-basis2-driver"]
 	path = external/hf-alicat-basis2-driver
-	url = https://github.com/N3b3x/hf-alicat-basis2-driver.git
+	url = https://github.com/hardfoc/hf-alicat-basis2-driver.git
 [submodule "external/hf-fdo2-driver"]
 	path = external/hf-fdo2-driver
-	url = https://github.com/N3b3x/hf-fdo2-driver.git
+	url = https://github.com/hardfoc/hf-fdo2-driver.git
 [submodule "external/hf-se050-driver"]
 	path = external/hf-se050-driver
-	url = https://github.com/N3b3x/hf-se050-driver.git
+	url = https://github.com/hardfoc/hf-se050-driver.git
 [submodule "external/hf-pf1550-driver"]
 	path = external/hf-pf1550-driver
-	url = https://github.com/N3b3x/hf-pf1550-driver.git
+	url = https://github.com/hardfoc/hf-pf1550-driver.git
 [submodule "external/hf-vortex-driver"]
 	path = external/hf-vortex-driver
-	url = https://github.com/N3b3x/hf-vortex-driver.git
+	url = https://github.com/hardfoc/hf-vortex-driver.git
 [submodule "external/hf-isf15acp4-driver"]
 	path = external/hf-isf15acp4-driver
-	url = https://github.com/N3b3x/hf-isf15acp4-driver.git
+	url = https://github.com/hardfoc/hf-isf15acp4-driver.git
 	branch = main
 [submodule "external/hf-at25040-driver"]
 	path = external/hf-at25040-driver
-	url = https://github.com/N3b3x/hf-at25040-driver.git
+	url = https://github.com/hardfoc/hf-at25040-driver.git
 [submodule "external/hf-ads9324-driver"]
 	path = external/hf-ads9324-driver
-	url = https://github.com/N3b3x/hf-ads9324-driver.git
+	url = https://github.com/hardfoc/hf-ads9324-driver.git
 [submodule "external/hf-sfm-flow-meter-driver"]
 	path = external/hf-sfm-flow-meter-driver
-	url = https://github.com/N3b3x/hf-sfm-flow-meter-driver.git
+	url = https://github.com/hardfoc/hf-sfm-flow-meter-driver.git
 [submodule "external/hf-bmp581-driver"]
 	path = external/hf-bmp581-driver
-	url = https://github.com/N3b3x/hf-bmp581-driver.git
+	url = https://github.com/hardfoc/hf-bmp581-driver.git
 [submodule "external/hf-dynamixel-driver"]
 	path = external/hf-dynamixel-driver
-	url = https://github.com/N3b3x/hf-dynamixel-driver.git
+	url = https://github.com/hardfoc/hf-dynamixel-driver.git
