@@ -1,0 +1,13 @@
+{
+  "umbrella": {
+    "title": "One umbrella, one submodule per chip",
+    "alt": "Layer diagram: board HALs and products build on hf-core, whose handlers use the device drivers in hf-core-drivers/external and the platform layer in hf-core-drivers/internal, which drive the chips.",
+    "description": "From top to bottom. Board HALs and products build on hf-core, whose handlers adapt each driver to the platform. hf-core-drivers holds the device drivers under external/ (one per repository, names read from .gitmodules) and the platform layer under internal/. The drivers talk to the chips through interfaces that the platform layer implements for the MCU.",
+    "profile": "overview",
+    "width": 1200,
+    "source": "docs/diagrams/figures/umbrella.py",
+    "sources": [
+      ".gitmodules:submodule paths"
+    ]
+  }
+}
