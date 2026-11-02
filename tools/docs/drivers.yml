@@ -1,0 +1,38 @@
+# Facts for the driver catalogue, one entry per submodule in .gitmodules (the generator fails on a missing or extra
+# entry). Each line is checked against the driver's README and repository description. `site: true` when the driver
+# publishes a documentation site at https://hardfoc.github.io/<repo>/ (gh api repos/hardfoc/<repo>/pages).
+groups:
+  motion: Motor and actuator control
+  sensing: Position and motion sensing
+  analog: Data conversion
+  environment: Environmental and process sensors
+  io: I/O, PWM and display
+  system: Power, memory and security
+  internal: Platform layer (internal/)
+
+drivers:
+  hf-tmc9660-driver: {group: motion, chip: TMC9660, vendor: Analog Devices (Trinamic), function: BLDC / stepper / DC motor controller with on-chip FOC, bus: SPI or UART (TMCL), cpp: C++20, site: true}
+  hf-tmc5160-driver: {group: motion, chip: TMC5130 / TMC5160, vendor: Analog Devices (Trinamic), function: Stepper motor controller and driver, bus: SPI or UART, cpp: C++17, site: true}
+  hf-max22200-driver: {group: motion, chip: MAX22200, vendor: Analog Devices, function: Octal solenoid and motor driver, bus: SPI, cpp: C++20, site: true}
+  hf-tle92466ed-driver: {group: motion, chip: TLE92466ED, vendor: Infineon, function: Six-channel low-side solenoid driver, bus: SPI, cpp: C++20, site: true}
+  hf-dynamixel-driver: {group: motion, chip: DYNAMIXEL X-series, vendor: ROBOTIS, function: Smart servo (wrapper around the DYNAMIXEL SDK), bus: Half-duplex UART (Protocol 2.0), cpp: C++17, site: true}
+  hf-vortex-driver: {group: motion, chip: HardFOC Vortex, vendor: HardFOC, function: CANopen client for Vortex motor controllers (CiA 301 / 402), bus: CAN, cpp: C++20, site: false}
+  hf-as5047u-driver: {group: sensing, chip: AS5047U, vendor: ams OSRAM, function: Magnetic rotary position encoder, bus: SPI, cpp: C++20, site: true}
+  hf-bno08x-driver: {group: sensing, chip: BNO080 / BNO085 / BNO086, vendor: CEVA (Hillcrest), function: 9-axis IMU and sensor-fusion hub, bus: I²C, SPI or UART (SH-2), cpp: C++, site: true}
+  hf-ads7952-driver: {group: analog, chip: ADS7952, vendor: Texas Instruments, function: 12-channel 12-bit SAR ADC, bus: SPI, cpp: C++20, site: true}
+  hf-ads9324-driver: {group: analog, chip: ADS9324, vendor: Texas Instruments, function: 16-channel 16-bit simultaneous-sampling SAR ADC, bus: SPI, cpp: C++20, site: true}
+  hf-bmp581-driver: {group: environment, chip: BMP581, vendor: Bosch Sensortec, function: Barometric pressure sensor, bus: I²C or SPI, cpp: C++17 (header-only), site: true}
+  hf-mcp9700-driver: {group: environment, chip: MCP9700 / MCP9700A, vendor: Microchip, function: Analog temperature sensor, bus: ADC, cpp: C++17, site: true}
+  hf-ntc-thermistor-driver: {group: environment, chip: NTC thermistor, vendor: Generic, function: Thermistor temperature (table, Beta, Steinhart-Hart), bus: ADC, cpp: C++, site: true}
+  hf-fdo2-driver: {group: environment, chip: FDO2-G2, vendor: PyroScience, function: Optical oxygen sensor, bus: UART, cpp: C++17, site: true}
+  hf-sfm-flow-meter-driver: {group: environment, chip: SFM4300, vendor: Sensirion, function: SF06-family gas mass flow meter, bus: I²C, cpp: C++17 (header-only), site: true}
+  hf-alicat-basis2-driver: {group: environment, chip: BASIS-2, vendor: Alicat Scientific, function: Mass flow meter and controller, bus: Modbus RTU over UART, cpp: C++17, site: true}
+  hf-pcal95555-driver: {group: io, chip: PCA9555 / PCAL9555A, vendor: NXP, function: 16-bit I/O expander, bus: I²C, cpp: C++, site: true}
+  hf-pca9685-driver: {group: io, chip: PCA9685, vendor: NXP, function: 16-channel 12-bit PWM controller, bus: I²C, cpp: C++, site: true}
+  hf-ws2812-rmt-driver: {group: io, chip: WS2812 / NeoPixel, vendor: Worldsemi, function: Addressable RGB(W) LEDs, bus: ESP32 RMT, cpp: C++ (ESP32 only), site: true}
+  hf-isf15acp4-driver: {group: io, chip: ISF15ACP4, vendor: NKK Switches, function: 96 × 64 RGB OLED SmartDisplay pushbutton, bus: SPI, cpp: C++20, site: true}
+  hf-pf1550-driver: {group: system, chip: PF1550, vendor: NXP, function: PMIC with 3 buck, 3 LDO and Li-ion charger, bus: I²C, cpp: C++20 (header-only), site: true}
+  hf-at25040-driver: {group: system, chip: AT25010B / AT25020B / AT25040B, vendor: Microchip, function: Serial EEPROM, bus: SPI, cpp: C++17 (header-only), site: true}
+  hf-se050-driver: {group: system, chip: SE050, vendor: NXP, function: EdgeLock secure element, bus: I²C (T=1), cpp: C++17, site: true}
+  hf-internal-interface-wrap: {group: internal, chip: Base interfaces, vendor: HardFOC, function: MCU peripheral interfaces (GPIO, ADC, I²C, SPI, UART, CAN, PWM, ...) with ESP32 implementations, bus: All, cpp: C++, site: true}
+  hf-pincfg: {group: internal, chip: Pin maps, vendor: HardFOC, function: Compile-time functional pin maps per board (Vortex V1, Flux V1), bus: none, cpp: C++20 (header-only), site: true}
