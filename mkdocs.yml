@@ -1,0 +1,23 @@
+# Documentation site on the HardFOC MkDocs platform: theme, plugin and toolchain come from the hardfoc-mkdocs-theme
+# package in hardfoc/hf-general-ci-tools. Preview locally:
+#
+#   pip install "git+https://github.com/hardfoc/hf-general-ci-tools@v1\
+#   #subdirectory=packages/hardfoc-mkdocs-theme"      (one line, without the backslash)
+#   mkdocs serve                                     http://127.0.0.1:8000
+#   mkdocs build --strict                            what CI runs
+#   hardfoc-docs figures && hardfoc-docs gen         refresh figures and generated tables
+#
+# Pages: docs/, order: docs/.nav.yml, rules: docs/DOCS-STYLE-GUIDE.md in hf-general-ci-tools.
+site_name: HardFOC Core Drivers
+site_description: >-
+  Catalogue of the HardFOC device drivers and platform layers collected in hf-core-drivers: one submodule
+  per chip, each with its own documentation site.
+repo_url: https://github.com/hardfoc/hf-core-drivers
+
+theme:
+  name: hardfoc
+
+plugins:
+  - hardfoc
+  - search
+  - awesome-nav

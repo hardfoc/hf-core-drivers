@@ -1,0 +1,16 @@
+---
+# Site navigation (mkdocs-awesome-nav): a catalogue site for the driver umbrella.
+nav:
+  - Home: index.md
+  - Get started:
+      - Using the drivers: integration.md
+  - Concepts:
+      - How a driver is built: concepts.md
+  - Guides:
+      - Driver catalogue: catalogue.md
+      - Platform layer: internal.md
+      - Updating submodules: submodules.md
+      - Coding standards: coding-standards.md
+  - Reference:
+      - All drivers: drivers.md
+      - Figures: diagrams/index.md
