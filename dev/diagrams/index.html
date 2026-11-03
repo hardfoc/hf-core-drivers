@@ -103,6 +103,47 @@
   <meta property="og:description" content="Catalogue of the HardFOC device drivers and platform layers collected in hf-core-drivers: one submodule per chip, each with its own documentation site.">
   <meta property="og:url" content="https://hardfoc.github.io/hf-core-drivers/latest/diagrams/">
   <meta name="twitter:card" content="summary">
+  <script>
+(function () {
+  if (typeof mermaid != "undefined" && !(mermaid instanceof Element)) return;
+  var SRC = "https://unpkg.com/mermaid@11/dist/mermaid.min.js", config = {}, real, loading, waiting = [];
+  var stub = {
+    initialize: function (c) { config = c || {}; if (real) real.initialize(config); },
+    render: function (id, text) {
+      var el = null, pres = document.querySelectorAll("pre.mermaid:not([data-hf-mermaid])");
+      for (var i = 0; i < pres.length && !el; i++) if (pres[i].textContent === text) el = pres[i];
+      if (el) el.setAttribute("data-hf-mermaid", "");
+      return near(el).then(load).then(function (m) { return m.render(id, text); });
+    }
+  };
+  function load() {
+    return loading || (loading = new Promise(function (resolve, reject) {
+      var s = document.createElement("script");
+      s.src = SRC;
+      s.onload = function () {
+        real = window.mermaid;
+        window.mermaid = stub;
+        real.initialize(config);
+        resolve(real);
+      };
+      s.onerror = function () { loading = null; reject(new Error("Mermaid did not load")); };
+      document.head.appendChild(s);
+    }));
+  }
+  function near(el) {
+    if (real || !el || !("IntersectionObserver" in window)) return Promise.resolve();
+    return new Promise(function (resolve) {
+      var io = new IntersectionObserver(function (entries) {
+        if (entries.some(function (e) { return e.isIntersecting; })) { io.disconnect(); resolve(); }
+      }, { rootMargin: "100% 0px" });
+      io.observe(el);
+      waiting.push(function () { io.disconnect(); resolve(); });
+    });
+  }
+  window.addEventListener("beforeprint", function () { waiting.splice(0).forEach(function (go) { go(); }); });
+  window.mermaid = stub;
+})();
+</script>
 
   </head>
   
@@ -466,15 +507,19 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
         
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-            
+  
+  
+  
+    <a href="../integration/" class="md-nav__link">
+      
   
   
   <span class="md-ellipsis">
@@ -488,50 +533,12 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Get started
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
   
 
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../integration/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Using the drivers
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
       
     </li>
   
@@ -557,15 +564,19 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
         
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
+  
+  
+  
+    <a href="../concepts/" class="md-nav__link">
+      
   
   
   <span class="md-ellipsis">
@@ -579,50 +590,12 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Concepts
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
   
 
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../concepts/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    How a driver is built
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
       
     </li>
   
@@ -654,15 +627,19 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
         
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-            
+  
+  
+  
+    <a href="../catalogue/" class="md-nav__link">
+      
   
   
   <span class="md-ellipsis">
@@ -676,134 +653,12 @@
   
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Guides
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
   
 
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../catalogue/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Driver catalogue
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../internal/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Platform layer
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../submodules/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Updating submodules
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../coding-standards/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Coding standards
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
       
     </li>
   
@@ -837,6 +692,8 @@
         
       
     
+    
+      
     
     <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
@@ -988,19 +845,19 @@ not redrawn, when the code changes. CI runs <code>hardfoc-docs figures --check</
 committed figure no longer matches the code. Each figure below lists the files it is drawn from.</p>
 <h2 id="one-umbrella-one-submodule-per-chip">One umbrella, one submodule per chip<a class="headerlink" href="#one-umbrella-one-submodule-per-chip" title="Permanent link">&para;</a></h2>
 <figure class="hf-figure">
-<img src="umbrella.svg#only-light" alt="Layer diagram: board HALs and products build on hf-core, whose handlers use the device drivers in hf-core-drivers/external and the platform layer in hf-core-drivers/internal, which drive the chips." width="1200" loading="lazy"><img src="umbrella.dark.svg#only-dark" alt="Layer diagram: board HALs and products build on hf-core, whose handlers use the device drivers in hf-core-drivers/external and the platform layer in hf-core-drivers/internal, which drive the chips." width="1200" loading="lazy">
+<img src="umbrella.svg#only-light" alt="Layer diagram: board HALs and products build on hf-core, whose handlers use the device drivers in hf-core-drivers/external and the platform layer in hf-core-drivers/internal, which drive the chips." width="1200" height="869"><img src="umbrella.dark.svg#only-dark" alt="Layer diagram: board HALs and products build on hf-core, whose handlers use the device drivers in hf-core-drivers/external and the platform layer in hf-core-drivers/internal, which drive the chips." width="1200" height="869">
 <figcaption>One umbrella, one submodule per chip</figcaption>
 </figure>
 
 <details class="hf-figure-desc">
 <summary>Figure description and sources</summary>
 <p>From top to bottom. Board HALs and products build on hf-core, whose handlers adapt each driver to the platform. hf-core-drivers holds the device drivers under external/ (one per repository, names read from .gitmodules) and the platform layer under internal/. The drivers talk to the chips through interfaces that the platform layer implements for the MCU.</p>
-<p>Drawn from: <a href="https://github.com/hardfoc/hf-core-drivers/blob/800d1fbbc0889e1d49c2a75c7f03f4e9eed13a49/.gitmodules"><code>.gitmodules</code></a> <code>submodule paths</code>; figure module <a href="https://github.com/hardfoc/hf-core-drivers/blob/800d1fbbc0889e1d49c2a75c7f03f4e9eed13a49/docs/diagrams/figures/umbrella.py"><code>docs/diagrams/figures/umbrella.py</code></a>.</p>
+<p>Drawn from: <a href="https://github.com/hardfoc/hf-core-drivers/blob/4485f659bf57912076699c8d6b352031fcb13484/.gitmodules"><code>.gitmodules</code></a> <code>submodule paths</code>; figure module <a href="https://github.com/hardfoc/hf-core-drivers/blob/4485f659bf57912076699c8d6b352031fcb13484/docs/diagrams/figures/umbrella.py"><code>docs/diagrams/figures/umbrella.py</code></a>.</p>
 </details>
-<p>Figure module: <a href="https://github.com/hardfoc/hf-core-drivers/blob/800d1fbbc0889e1d49c2a75c7f03f4e9eed13a49/docs/diagrams/figures/umbrella.py"><code>docs/diagrams/figures/umbrella.py</code></a></p>
+<p>Figure module: <a href="https://github.com/hardfoc/hf-core-drivers/blob/4485f659bf57912076699c8d6b352031fcb13484/docs/diagrams/figures/umbrella.py"><code>docs/diagrams/figures/umbrella.py</code></a></p>
 <p>Drawn from:</p>
 <ul>
-<li><code>submodule paths</code> in <a href="https://github.com/hardfoc/hf-core-drivers/blob/800d1fbbc0889e1d49c2a75c7f03f4e9eed13a49/.gitmodules"><code>.gitmodules</code></a></li>
+<li><code>submodule paths</code> in <a href="https://github.com/hardfoc/hf-core-drivers/blob/4485f659bf57912076699c8d6b352031fcb13484/.gitmodules"><code>.gitmodules</code></a></li>
 </ul>
 
 
@@ -1102,7 +959,7 @@ committed figure no longer matches the code. Each figure below lists the files i
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.tracking", "navigation.instant", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.action.edit", "content.tabs.link", "toc.follow"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": "latest", "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.prune", "navigation.top", "navigation.footer", "navigation.tracking", "navigation.instant", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.action.edit", "content.tabs.link", "toc.follow"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": "latest", "provider": "mike"}}</script>
     
     
       <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
